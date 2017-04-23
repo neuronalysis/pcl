@@ -5,12 +5,16 @@
 #Autor: Christian Fürst
 #Matrikel-Nr.: 98-618-192
 
-from solution_1 import *
+from solution_2 import *
 
 def main():
-    #for entry in getfreqwords('C:\development\data\SAC_test', 'freq-stats.txt'):
-    #    print(entry)
-    getfreqwords('C:\development\data\SAC', 'freq-stats.txt')
+    
+    gettitles(
+        r'C:\development\data\wiki\dewiki-latest-pages-articles.xml',
+        'testfile.txt',
+        'trainfile.txt',
+        100)
+    
     
 
 if __name__ == '__main__':
