@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#PCL II, Übung 3, FS17
-#Aufgabe 1
+#PCL II, Übung 4, FS17
+#Aufgabe 2
 #Autor: Christian Fürst
 #Matrikel-Nr.: 98-618-192
+
 from lxml import etree as et
 import random
-
 
 def gettitles(infile, testfile, trainfile, k):
     context = et.iterparse(

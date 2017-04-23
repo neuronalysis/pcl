@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#PCL II, Übung 3, FS17
+#PCL II, Übung 4, FS17
 #Aufgabe 1
 #Autor: Christian Fürst
 #Matrikel-Nr.: 98-618-192
@@ -12,7 +12,11 @@ import lxml.etree as ET
 
 def getfreqwords(indir, outfile):
     d = defaultdict(int)
-                
+    
+    # hash-sentence-map wird in sekundärspeicher ausgelagert
+    # um hauptspeicherverbrauch zu reduzieren
+    # die hashes werden zusammen mit den häufigkeiten
+    # in einen dictionary geschrieben
     with open('hash-sentence-map.txt', 'w', encoding='utf-8') as hashmap:
         for filepath in iglob(os.path.join(indir, '*mul.xml')):
             print(filepath)
@@ -22,7 +26,8 @@ def getfreqwords(indir, outfile):
                 for sentence in article.iterfind('.//s'):
                     words = sentence.iterfind('.//w[@lemma]')
                     lemmaSentence = ''
-                        
+                    
+                    # "lemmatisierung" des satzes
                     for index, word in enumerate(words):
                         lemmaSentence += ' ' + word.get('lemma')
                         
